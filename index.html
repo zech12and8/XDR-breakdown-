@@ -24,7 +24,6 @@
             min-height: 100vh;
         }
 
-        /* main container — like a tactical briefing file */
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -36,7 +35,37 @@
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.9), inset 0 1px 0 #4f565f;
         }
 
-        /* headers — amber glow like the Vegas 2 HUD */
+        /* GitHub-style badges at top */
+        .gh-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+            align-items: center;
+        }
+        .gh-badges span {
+            background: #1a2129;
+            border: 1px solid #2d363f;
+            border-radius: 30px;
+            padding: 0.2rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #b0bac4;
+            letter-spacing: 0.03em;
+        }
+        .gh-badges .badge-amber {
+            color: #f9b84a;
+            border-color: #f9b84a55;
+        }
+        .gh-badges .badge-green {
+            color: #7ddf9a;
+            border-color: #7ddf9a55;
+        }
+        .gh-badges .badge-blue {
+            color: #6fb3e0;
+            border-color: #6fb3e055;
+        }
+
         h1, h2, h3 {
             font-weight: 600;
             letter-spacing: 0.02em;
@@ -48,10 +77,11 @@
             text-shadow: 0 0 12px rgba(249, 184, 74, 0.25);
             border-bottom: 2px solid #f9b84a55;
             padding-bottom: 0.6rem;
-            margin-bottom: 1.8rem;
+            margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
             gap: 0.7rem;
+            flex-wrap: wrap;
         }
         h1 small {
             font-size: 1rem;
@@ -63,6 +93,14 @@
             padding: 0.2rem 1rem;
             border-radius: 30px;
             border: 1px solid #3d454f;
+        }
+
+        .subtitle {
+            color: #9aa4b0;
+            font-size: 1.1rem;
+            margin-bottom: 1.8rem;
+            border-left: 3px solid #f9b84a55;
+            padding-left: 1rem;
         }
 
         h2 {
@@ -81,7 +119,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* paragraphs & lists */
         p {
             margin-bottom: 1.2rem;
             color: #c9d0d8;
@@ -95,7 +132,6 @@
             color: #c0c8d0;
         }
 
-        /* hyperlinks — glowing amber, tactical feel */
         a {
             color: #f9b84a;
             text-decoration: none;
@@ -116,7 +152,6 @@
             color: #cf9f5e;
         }
 
-        /* code blocks / terminal hints — like mission data */
         .code-block {
             background: #0e1217;
             border-left: 4px solid #f9b84a;
@@ -136,7 +171,6 @@
             color: #f9b84a;
         }
 
-        /* cards for tools — lightweight & clean */
         .tool-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -167,7 +201,6 @@
             margin-top: 0.3rem;
         }
 
-        /* highlight boxes */
         .highlight-box {
             background: #12181f;
             border: 1px solid #3a434e;
@@ -190,19 +223,73 @@
             text-transform: uppercase;
         }
 
+        .badge-gray {
+            background: #1a1f26;
+            color: #9aa4b0;
+            border-color: #3a434e;
+        }
+
         hr {
             border: none;
             border-top: 1px solid #2b333d;
             margin: 2rem 0;
         }
 
-        /* mobile friendly */
+        /* README specific styles */
+        .readme-block {
+            background: #0d1116;
+            border: 1px solid #2d363f;
+            border-radius: 14px;
+            padding: 1.8rem 2rem;
+            margin: 1rem 0 1.8rem 0;
+        }
+        .readme-block summary {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #f9b84a;
+            cursor: pointer;
+            padding: 0.3rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .readme-block summary::-webkit-details-marker {
+            display: none;
+        }
+        .readme-block summary::before {
+            content: "📄";
+            font-size: 1.4rem;
+        }
+        .readme-block[open] summary::before {
+            content: "📂";
+        }
+        .readme-block ul {
+            margin-top: 1rem;
+        }
+
+        /* LinkedIn-friendly footer */
+        .linkedin-footer {
+            margin-top: 1.5rem;
+            padding: 1rem 1.5rem;
+            background: #0d1116;
+            border: 1px solid #2d363f;
+            border-radius: 12px;
+            text-align: center;
+            color: #9aa4b0;
+            font-size: 0.9rem;
+        }
+        .linkedin-footer a {
+            font-weight: 600;
+        }
+
         @media (max-width: 700px) {
             body { padding: 1rem 0.8rem; }
             .container { padding: 1.8rem 1.2rem; }
-            h1 { font-size: 1.9rem; flex-wrap: wrap; }
+            h1 { font-size: 1.9rem; }
             h1 small { margin-left: 0; }
             .tool-grid { grid-template-columns: 1fr 1fr; }
+            .gh-badges { gap: 0.4rem; }
         }
         @media (max-width: 450px) {
             .tool-grid { grid-template-columns: 1fr; }
@@ -213,11 +300,53 @@
 
 <div class="container">
 
+    <!-- ===== GITHUB-STYLE BADGES ===== -->
+    <div class="gh-badges">
+        <span class="badge-amber">⭐ XDR Reference</span>
+        <span class="badge-green">🐧 Linux Tools</span>
+        <span class="badge-blue">📦 20+ Utilities</span>
+        <span>MIT License</span>
+        <span>v1.0</span>
+    </div>
+
     <!-- HEADER -->
     <h1>
         🟧 XDR &amp; Linux Tools
-        <small>v1.0 · tactical brief</small>
+        <small>security reference · homelab ready</small>
     </h1>
+    <div class="subtitle">
+        A curated guide to XDR (eXtended Detection &amp; Response) and lightweight open-source security tools for Linux.
+    </div>
+
+    <!-- ===== README SECTION (collapsible) ===== -->
+    <details class="readme-block" open>
+        <summary>README — about this project</summary>
+        <p>
+            <strong>Welcome to the XDR &amp; Linux Tools reference.</strong> This page was built as a quick-reference 
+            guide for security professionals, penetration testers, and Linux enthusiasts. It's designed to be:
+        </p>
+        <ul>
+            <li><strong>Educational</strong> — a clear breakdown of XDR concepts, pillars, and why it matters in modern security.</li>
+            <li><strong>Practical</strong> — a curated list of 20+ lightweight Linux tools with install commands for Debian/Ubuntu/Mint/Kali and Arch.</li>
+            <li><strong>Portable</strong> — a single HTML file with no dependencies. Open it in any browser, share it, or host it on GitHub Pages.</li>
+        </ul>
+        <h3 style="margin-top:0.8rem;">🎯 Who is this for?</h3>
+        <ul>
+            <li><strong>Blue team / SOC analysts</strong> — understand XDR and build lightweight monitoring stacks.</li>
+            <li><strong>Red team / pentesters</strong> — grab essential recon and exploitation tools without bloat.</li>
+            <li><strong>Homelabbers &amp; students</strong> — set up a security lab on older hardware (these tools run on 512MB RAM easily).</li>
+        </ul>
+        <h3 style="margin-top:0.8rem;">⚡ Quick start</h3>
+        <div class="code-block" style="margin-bottom:0.2rem;">
+<span class="cmd"># Clone or download this HTML file and open it in any browser</span>
+# No dependencies, no servers — just pure HTML5.3+ &amp; CSS.
+
+<span class="cmd"># For the tools, pick your distro and run the install command below.</span>
+        </div>
+        <p style="margin-top:0.8rem; margin-bottom:0;">
+            <span class="badge">📌 tip</span> Bookmark this page for quick access during engagements or study sessions.
+        </p>
+    </details>
 
     <!-- ===== SECTION 1: XDR BREAKDOWN ===== -->
     <h2>🔍 What is XDR? (eXtended Detection &amp; Response)</h2>
@@ -325,7 +454,21 @@ sudo pacman -S nmap tcpdump gnu-netcat whois hydra john sqlmap metasploit htop i
         <a href="#" onclick="return false;">linux security hardening guide</a>
     </p>
 
-    <!-- FOOTER -->
+    <!-- ===== LINKEDIN-FRIENDLY FOOTER ===== -->
+    <div class="linkedin-footer">
+        <p style="margin-bottom:0.3rem;">
+            <strong>📌 Share this resource</strong> — built for the infosec community.
+        </p>
+        <p style="margin-bottom:0; font-size:0.85rem;">
+            Found this useful? Connect with me on 
+            <a href="#" onclick="return false;">LinkedIn</a> &middot;
+            Star this repo on 
+            <a href="#" onclick="return false;">GitHub</a> &middot;
+            Fork and customize for your own lab.
+        </p>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
     <hr />
     <p style="text-align:right; font-size:0.85rem; color:#7a8592; margin-bottom:0;">
         <span style="background:#1a2129; padding:0.2rem 1.2rem; border-radius:30px; border:1px solid #2f3842;">
@@ -335,11 +478,13 @@ sudo pacman -S nmap tcpdump gnu-netcat whois hydra john sqlmap metasploit htop i
 
 </div>
 
-<!-- ===== optional JS (just a tiny console greeting) ===== -->
+<!-- ===== JS ===== -->
 <script>
     (function() {
         console.log("🟧 XDR Brief & Linux Tools · Ready.");
         console.log("🌈 Rainbow Six Vegas 2 color scheme applied.");
+        console.log("📄 README included — expand/collapse at the top.");
+        console.log("🔗 GitHub & LinkedIn friendly.");
     })();
 </script>
 
